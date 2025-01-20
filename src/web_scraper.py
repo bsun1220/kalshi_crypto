@@ -101,7 +101,7 @@ def calculate_fair(strikes, coin, expiry, curr_px = None, date_click = 0):
     for strike in strikes:
         prob_above_strike = probability_above_strike(strike, np.array(transformed_strike_prices), risk_neutral_density)
         min_prob = probability_above_strike(min(transformed_strike_prices), np.array(transformed_strike_prices), risk_neutral_density) 
-        prob_above_strike = min(prob_above_strike, min_prob)/(min_prob + 0.05)
+        prob_above_strike = min(prob_above_strike, min_prob)/(min_prob * 1.05)
         prob_above_strike = float(np.round(prob_above_strike, 3))
         ans[strike] = prob_above_strike
     
