@@ -107,9 +107,9 @@ def calculate_fair(strikes, coin, expiry, curr_px = None, date_click = 0):
     
     return ans
 
-def get_kalshi_px(bitcoin = False):
+def get_kalshi_px(bitcoin = False, expiry = 17):
     now = datetime.now()
-    if now.hour >= 17:
+    if now.hour >= expiry:
         now = now + timedelta(days=1)
     
     month_dict = ['', 'jan', 'feb' 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
